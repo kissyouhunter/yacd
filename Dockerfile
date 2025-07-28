@@ -1,6 +1,6 @@
 ARG COMMIT_SHA=""
 
-FROM --platform=$BUILDPLATFORM node:alpine AS builder
+FROM node:alpine AS builder
 WORKDIR /app
 
 RUN npm i -g pnpm
@@ -13,7 +13,7 @@ RUN pnpm build \
   # remove source maps - people like small image
   && rm public/*.map || true
 
-FROM --platform=$TARGETPLATFORM alpine
+FROM alpine
 # the brotli module is only in the alpine *edge* repo
 # https://pkgs.alpinelinux.org/package/edge/main/x86/nginx-mod-http-brotli
 RUN apk add \
