@@ -154,9 +154,7 @@ function ProxyImpl({ now, name, proxy, latency, isSelectable, onClick }: ProxyPr
       role={isSelectable ? 'menuitem' : ''}
     >
       <div className={s0.proxyName}>
-        <ProxyNameTooltip label={name} aria-label={'proxy name: ' + name}>
-          <span>{name}</span>
-        </ProxyNameTooltip>
+        <span className={s0.proxyName}>{name}</span>
       </div>
       <div className={s0.row}>
         <span className={s0.proxyType} style={{ opacity: now ? 0.6 : 0.2 }}>
